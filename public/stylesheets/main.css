@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body,html {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  margin: auto;
+  display: table;
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+  font-family: Roboto, sans-serif;
+  background-color: #eee;
+  color: #444;
+}
+
+div.simple {
+  width: calc(90% - 3em);
+  background-color: #fff;
+  margin: auto;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.4);
+  border-radius: 0.25em;
+  padding: 1.5em;
+  text-align: center;
+}
+
+div.small {
+  max-width: 15em;
+  min-width: 11em;
+}
+
+div.breaker {
+  word-break: break-all;
+}
+
+div.text-box {
+  text-align: left;
+  width: calc(100% - 2.2em);
+  left: 10px;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 0.25em;
+  font-family: Roboto, sans-serif;
+  font-size: 10.5pt;
+}
+
+input.text {
+  width: calc(100% - 2.2em);
+  border: 0.2em solid #888;
+  padding: 0 0.5em 0 0.5em;
+  margin: 0.5em;
+  height: 2em;
+  border-radius: 0.25em;
+  background-color: transparent;
+  font-family: Roboto, sans-serif;
+  font-size: 10.5pt;
+}
+
+button {
+  height: 2.25em;
+  border: 0.2em solid #bbb;
+  border-radius: 0.25em;
+  background: #f8f8f8;
+  color: #444;
+  margin: 0.5em 0.25em;
+  font-family: Roboto, sans-serif;
+  font-size: 10.5pt;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+.error {
+  border: 0.2em solid #f88 !important;
+  background-color: #fee !important;
+  color: #f66 !important;
+}
+
+.status {
+  border: 0.2em solid #88f !important;
+  background-color: #eef !important;
+  color: #66f !important;
+}

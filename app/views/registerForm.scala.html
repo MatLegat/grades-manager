@@ -1,0 +1,18 @@
+@(error: Option[String] = None)
+
+@main("Registrar") {
+
+  <div class="simple small">
+    @error.map(err => <div class="text-box error"> {err} </div>)
+    <form action="@routes.Application.registerPost" method="post">
+      <input type="text" id="login" name="login" placeholder="Login" class="text">
+      <input type="text" id="name" name="name" placeholder="Nome" class="text">
+      <input type="text" id="email" name="email" placeholder="Email" class="text">
+      <input type="password" id="password" name="password" placeholder="Senha" class="text">
+      <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Confirmar senha" class="text">
+      <button type="submit">Registrar</button>
+      <button type="button" onclick="location.href='@routes.Application.loginGet'">Cancelar</button>
+    </form>
+  </div>
+
+}

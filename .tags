@@ -1,0 +1,139 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+realpath	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^realpath () {$/;"	function	line:7
+is_cygwin	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^is_cygwin() {$/;"	function	line:35
+cygwinpath	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^cygwinpath() {$/;"	function	line:49
+make_url	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^make_url() {$/;"	function	line:59
+echoerr	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^echoerr () {$/;"	function	line:91
+vlog	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^vlog () {$/;"	function	line:94
+dlog	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^dlog () {$/;"	function	line:97
+jar_file	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^jar_file () {$/;"	function	line:101
+acquire_sbt_jar	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^acquire_sbt_jar () {$/;"	function	line:105
+execRunner	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^execRunner () {$/;"	function	line:114
+addJava	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^addJava () {$/;"	function	line:132
+addSbt	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^addSbt () {$/;"	function	line:136
+addResidual	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^addResidual () {$/;"	function	line:140
+addDebugger	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^addDebugger () {$/;"	function	line:144
+get_mem_opts	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^get_mem_opts () {$/;"	function	line:148
+require_arg	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^require_arg () {$/;"	function	line:167
+is_function_defined	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^is_function_defined() {$/;"	function	line:177
+detect_terminal_for_ui	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^detect_terminal_for_ui() {$/;"	function	line:182
+process_args	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^process_args () {$/;"	function	line:194
+checkJava	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^checkJava() {$/;"	function	line:227
+run	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^run() {$/;"	function	line:250
+usage	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^usage() {$/;"	function	line:300
+process_my_args	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^process_my_args () {$/;"	function	line:352
+loadConfigFile	/home/matteus/code/scala/grades/grades-manager/bin/activator	/^loadConfigFile() {$/;"	function	line:373
+BIN_DIRECTORY	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set BIN_DIRECTORY=%~dp0$/;"	variable	line:40
+BIN_DIRECTORY	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set BIN_DIRECTORY=%BIN_DIRECTORY:~0,-1%$/;"	variable	line:41
+ACTIVATOR_HOME	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^for %%d in (%BIN_DIRECTORY%) do set ACTIVATOR_HOME=%%~dpd$/;"	variable	line:42
+ACTIVATOR_HOME	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set ACTIVATOR_HOME=%ACTIVATOR_HOME:~0,-1%$/;"	variable	line:43
+ERROR_CODE	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set ERROR_CODE=0$/;"	variable	line:47
+APP_VERSION	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set APP_VERSION=1.3.10$/;"	variable	line:48
+ACTIVATOR_LAUNCH_JAR	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set ACTIVATOR_LAUNCH_JAR=activator-launch-%APP_VERSION%.jar$/;"	variable	line:49
+DOUBLECLICKED	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^for %%x in (%cmdcmdline%) do if %%~x==\/c set DOUBLECLICKED=1$/;"	variable	line:53
+SBT_HOME	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set SBT_HOME=%BIN_DIRECTORY$/;"	variable	line:55
+DOUBLECLICKED	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^for %%x in (%cmdcmdline%) do if %%~x==\/c set DOUBLECLICKED=1$/;"	variable	line:59
+FN	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set FN=%SBT_HOME%\\..\\conf\\sbtconfig.txt$/;"	variable	line:62
+CFG_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set CFG_OPTS=$/;"	variable	line:63
+DO_NOT_REUSE_ME	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^  set DO_NOT_REUSE_ME=%%i$/;"	variable	line:65
+CFG_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^  set CFG_OPTS=!CFG_OPTS! !DO_NOT_REUSE_ME!$/;"	variable	line:68
+DO_NOT_REUSE_ME	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set DO_NOT_REUSE_ME=%%i$/;"	variable	line:76
+CFG_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set CFG_OPTS=!CFG_OPTS! !DO_NOT_REUSE_ME!$/;"	variable	line:79
+DO_NOT_REUSE_ME	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^      set DO_NOT_REUSE_ME=%%i$/;"	variable	line:85
+CFG_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^      set CFG_OPTS=!CFG_OPTS! !DO_NOT_REUSE_ME!$/;"	variable	line:88
+_JAVACMD	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set _JAVACMD=%JAVACMD%$/;"	variable	line:94
+_JAVACMD	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^if "%_JAVACMD%"=="" set _JAVACMD=java$/;"	variable	line:105
+JAVAINSTALLED	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^  if %%~j==java set JAVAINSTALLED=1$/;"	variable	line:109
+JAVAINSTALLED	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^  if %%~j==openjdk set JAVAINSTALLED=1$/;"	variable	line:110
+_JAVACCMD	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^if "%_JAVACCMD%"=="" set _JAVACCMD=javac$/;"	variable	line:119
+JAVACINSTALLED	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^  if %%~j==javac set JAVACINSTALLED=1$/;"	variable	line:121
+JAVAOK	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set JAVAOK=true$/;"	variable	line:125
+JAVAOK	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^if not defined JAVAINSTALLED set JAVAOK=false$/;"	variable	line:126
+JAVAOK	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^if not defined JAVACINSTALLED set JAVAOK=false$/;"	variable	line:127
+JAVA_VERSION	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set JAVA_VERSION=%%g$/;"	variable	line:150
+JAVA_VERSION	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set JAVA_VERSION=%JAVA_VERSION:"=%$/;"	variable	line:154
+MAJOR	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set MAJOR=%%v$/;"	variable	line:158
+MINOR	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set MINOR=%%w$/;"	variable	line:159
+BUILD	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set BUILD=%%x$/;"	variable	line:160
+META_SIZE	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set META_SIZE=-XX:MetaspaceSize=64M -XX:MaxMetaspaceSize=256M$/;"	variable	line:162
+META_SIZE	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^      set META_SIZE=-XX:PermSize=64M -XX:MaxPermSize=256M$/;"	variable	line:164
+MEM_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set MEM_OPTS=!META_SIZE!$/;"	variable	line:167
+_JAVA_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set _JAVA_OPTS=%JAVA_OPTS%$/;"	variable	line:171
+_JAVA_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^if "%_JAVA_OPTS%"=="" set _JAVA_OPTS=%CFG_OPTS%$/;"	variable	line:172
+DEBUG_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set DEBUG_OPTS=$/;"	variable	line:174
+args	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set args=$/;"	variable	line:177
+argsloop	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^:argsloop$/;"	label	line:178
+arg1	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^  set arg1=%~1$/;"	variable	line:182
+var	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^        set var="%%i"$/;"	variable	line:194
+JPDA_PORT	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^        set JPDA_PORT=9999$/;"	variable	line:198
+JPDA_PORT	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^        set JPDA_PORT=%~2$/;"	variable	line:201
+JPDA_PORT	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^      set JPDA_PORT=9999$/;"	variable	line:205
+DEBUG_OPTS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set DEBUG_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=!JPDA_PORT!$/;"	variable	line:209
+run	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^:run$/;"	label	line:218
+CMDS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^    set CMDS="ui"$/;"	variable	line:222
+CMDS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^  ) else set CMDS=!args!$/;"	variable	line:223
+CMDS	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^) else set CMDS=!args!$/;"	variable	line:224
+JAVA_FRIENDLY_HOME_1	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set JAVA_FRIENDLY_HOME_1=\/!ACTIVATOR_HOME:\\=\/!$/;"	variable	line:230
+JAVA_FRIENDLY_HOME	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set JAVA_FRIENDLY_HOME=\/!JAVA_FRIENDLY_HOME_1: =%%20!$/;"	variable	line:231
+NON_SPACED_CMD	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set NON_SPACED_CMD=%_JAVACMD: =%$/;"	variable	line:234
+error	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^:error$/;"	label	line:241
+ERROR_CODE	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^set ERROR_CODE=1$/;"	variable	line:242
+end	/home/matteus/code/scala/grades/grades-manager/bin/activator.bat	/^:end$/;"	label	line:244
+html	/home/matteus/code/scala/grades/grades-manager/app/views/main.scala.html	/^<html lang="en">$/;"	function	line:10
+head	/home/matteus/code/scala/grades/grades-manager/app/views/main.scala.html	/^    <head>$/;"	function	line:11
+title	/home/matteus/code/scala/grades/grades-manager/app/views/main.scala.html	/^        <title>@title<\/title>$/;"	function	line:13
+link	/home/matteus/code/scala/grades/grades-manager/app/views/main.scala.html	/^        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets\/main.css")">$/;"	function	line:14
+link	/home/matteus/code/scala/grades/grades-manager/app/views/main.scala.html	/^        <link rel="shortcut icon" type="image\/png" href="@routes.Assets.versioned("images\/favicon.png")">$/;"	function	line:15
+script	/home/matteus/code/scala/grades/grades-manager/app/views/main.scala.html	/^        <script src="@routes.Assets.versioned("javascripts\/hello.js")" type="text\/javascript"><\/script>$/;"	function	line:16
+body	/home/matteus/code/scala/grades/grades-manager/app/views/main.scala.html	/^    <body>$/;"	function	line:18
+User	/home/matteus/workspace/scala/grades/grades-manager/conf/evolutions/default/1.sql	/^CREATE TABLE "User" ($/;"	table	line:4
+User.login	/home/matteus/workspace/scala/grades/grades-manager/conf/evolutions/default/1.sql	/^CREATE TABLE "User" ($/;"	field	line:4
+User.name	/home/matteus/workspace/scala/grades/grades-manager/conf/evolutions/default/1.sql	/^    login varchar(50) NOT NULL,$/;"	field	line:5
+User.email	/home/matteus/workspace/scala/grades/grades-manager/conf/evolutions/default/1.sql	/^    name varchar(255) NOT NULL,$/;"	field	line:6
+User.password	/home/matteus/workspace/scala/grades/grades-manager/conf/evolutions/default/1.sql	/^    email varchar(255) NOT NULL,$/;"	field	line:7
+div	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^  <div class="simple small">$/;"	function	line:5
+form	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^    <form action="@routes.Application.registerPost" method="post">$/;"	function	line:7
+input	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^      <input type="text" id="login" name="login" placeholder="Login" class="text">$/;"	function	line:8
+input	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^      <input type="text" id="name" name="name" placeholder="Nome" class="text">$/;"	function	line:9
+input	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^      <input type="text" id="email" name="email" placeholder="Email" class="text">$/;"	function	line:10
+input	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^      <input type="password" id="password" name="password" placeholder="Senha" class="text">$/;"	function	line:11
+input	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^      <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Confirmar senha" class="text">$/;"	function	line:12
+button	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^      <button type="submit">Registrar<\/button>$/;"	function	line:13
+button	/home/matteus/workspace/scala/grades/grades-manager/app/views/registerForm.scala.html	/^      <button type="button" onclick="location.href='@routes.Application.loginGet'">Cancelar<\/button>$/;"	function	line:14
+div	/home/matteus/workspace/scala/grades/grades-manager/app/views/loginForm.scala.html	/^  <div class="simple small">$/;"	function	line:5
+form	/home/matteus/workspace/scala/grades/grades-manager/app/views/loginForm.scala.html	/^    <form action="@routes.Application.loginPost" method="post">$/;"	function	line:8
+input	/home/matteus/workspace/scala/grades/grades-manager/app/views/loginForm.scala.html	/^      <input type="text" id="login" name="login" placeholder="Login" class="text">$/;"	function	line:9
+input	/home/matteus/workspace/scala/grades/grades-manager/app/views/loginForm.scala.html	/^      <input type="password" id="password" name="password" placeholder="Senha" class="text">$/;"	function	line:10
+button	/home/matteus/workspace/scala/grades/grades-manager/app/views/loginForm.scala.html	/^      <button type="submit">Logar<\/button>$/;"	function	line:11
+button	/home/matteus/workspace/scala/grades/grades-manager/app/views/loginForm.scala.html	/^      <button type="button" onclick="location.href='@routes.Application.registerGet'">Registrar<\/button>$/;"	function	line:12
+div	/home/matteus/workspace/scala/grades/grades-manager/app/views/index.scala.html	/^  <div class="simple small">$/;"	function	line:5
+div	/home/matteus/workspace/scala/grades/grades-manager/app/views/index.scala.html	/^    <div class="text-box status breaker">Login: @user.login<\/div>$/;"	function	line:6
+div	/home/matteus/workspace/scala/grades/grades-manager/app/views/index.scala.html	/^    <div class="text-box status breaker">Nome: @user.name<\/div>$/;"	function	line:7
+div	/home/matteus/workspace/scala/grades/grades-manager/app/views/index.scala.html	/^    <div class="text-box status breaker">email: @user.email<\/div>$/;"	function	line:8
+div	/home/matteus/workspace/scala/grades/grades-manager/app/views/index.scala.html	/^    <div class="text-box status breaker">senha: @user.password<\/div>$/;"	function	line:9
+button	/home/matteus/workspace/scala/grades/grades-manager/app/views/index.scala.html	/^    <button type="button" onclick="location.href='@routes.Application.logout'">Sair<\/button>$/;"	function	line:10
+body,html	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^body,html {$/;"	function	line:5
+html	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^html {$/;"	function	line:10
+body	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^body {$/;"	function	line:15
+div.simple	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^div.simple {$/;"	function	line:23
+div.small	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^div.small {$/;"	function	line:33
+div.breaker	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^div.breaker {$/;"	function	line:38
+div.text-box	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^div.text-box {$/;"	function	line:42
+input.text	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^input.text {$/;"	function	line:53
+button	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^button {$/;"	function	line:65
+button::-moz-focus-inner	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^button::-moz-focus-inner {$/;"	function	line:76
+.error	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^.error {$/;"	function	line:80
+.status	/home/matteus/workspace/scala/grades/grades-manager/public/stylesheets/main.css	/^.status {$/;"	function	line:86
+html	/home/matteus/workspace/scala/grades/grades-manager/app/views/main.scala.html	/^<html lang="pt-br, en">$/;"	function	line:4
+head	/home/matteus/workspace/scala/grades/grades-manager/app/views/main.scala.html	/^  <head>$/;"	function	line:5
+meta	/home/matteus/workspace/scala/grades/grades-manager/app/views/main.scala.html	/^    <meta charset="UTF-8">$/;"	function	line:6
+meta	/home/matteus/workspace/scala/grades/grades-manager/app/views/main.scala.html	/^    <meta http-equiv="Content-Language" content="pt-br, en">$/;"	function	line:7
+meta	/home/matteus/workspace/scala/grades/grades-manager/app/views/main.scala.html	/^    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">$/;"	function	line:8
+title	/home/matteus/workspace/scala/grades/grades-manager/app/views/main.scala.html	/^    <title>@title<\/title>$/;"	function	line:9
+link	/home/matteus/workspace/scala/grades/grades-manager/app/views/main.scala.html	/^    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets\/main.css")">$/;"	function	line:10
+body	/home/matteus/workspace/scala/grades/grades-manager/app/views/main.scala.html	/^  <body style="background-image:url('@routes.Assets.versioned("images\/bg.png")')">$/;"	function	line:12

@@ -1,0 +1,16 @@
+@(error: Option[String] = None)(implicit flash: Flash)
+
+@main("Login") {
+
+  <div class="simple small">
+    @flash.get("status").map(st => <div class="text-box status"> {st} </div>)
+    @error.map(err => <div class="text-box error"> {err} </div>)
+    <form action="@routes.Application.loginPost" method="post">
+      <input type="text" id="login" name="login" placeholder="Login" class="text">
+      <input type="password" id="password" name="password" placeholder="Senha" class="text">
+      <button type="submit">Logar</button>
+      <button type="button" onclick="location.href='@routes.Application.registerGet'">Registrar</button>
+    </form>
+  </div>
+
+}

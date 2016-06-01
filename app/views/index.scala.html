@@ -1,0 +1,13 @@
+@(user: User)
+
+@main("Gerenciamento de Notas") {
+
+  <div class="simple small">
+    <div class="text-box status breaker">Login: @user.login</div>
+    <div class="text-box status breaker">Nome: @user.name</div>
+    <div class="text-box status breaker">email: @user.email</div>
+    <div class="text-box status breaker">senha: @user.password</div>
+    <button type="button" onclick="location.href='@routes.Application.logout'">Sair</button>
+  </div>
+
+}

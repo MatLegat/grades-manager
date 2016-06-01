@@ -1,0 +1,15 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="pt-br, en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="pt-br, en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>@title</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+  </head>
+  <body style="background-image:url('@routes.Assets.versioned("images/bg.png")')">
+    @content
+  </body>
+</html>
