@@ -42,7 +42,8 @@ div.breaker {
 div.text-box {
   text-align: left;
   width: calc(100% - 2.2em);
-  left: 10px;
+  /*left: 10px;*/
+  /*opacity: 0.6;*/
   padding: 0.5em;
   margin: 0.5em;
   border-radius: 0.25em;
@@ -51,15 +52,17 @@ div.text-box {
 }
 
 input.text {
+  position: relative;
   width: calc(100% - 2.2em);
   border: 0.2em solid #888;
   padding: 0 0.5em 0 0.5em;
   margin: 0.5em;
   height: 2em;
   border-radius: 0.25em;
-  background-color: transparent;
+  background-color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 10.5pt;
+  z-index: 1;
 }
 
 button {
@@ -78,13 +81,40 @@ button::-moz-focus-inner {
 }
 
 .error {
-  border: 0.2em solid #f88 !important;
-  background-color: #fee !important;
-  color: #f66 !important;
+  border: 0.2em solid #f77 !important;
+  background-color: #fdd !important;
+  color: #f55 !important;
+}
+
+.error-field {
+  border: 0.2em solid #f77 !important;
 }
 
 .status {
   border: 0.2em solid #88f !important;
   background-color: #eef !important;
   color: #66f !important;
+}
+
+.merge-down {
+  position: relative;
+  margin-top: -1em !important;
+  top: 1.5em !important;
+  z-index: 0;
+  padding-top: 0.2em !important;
+}
+
+.merge-up {
+  position: relative;
+  margin-bottom: -1em !important;
+  bottom: 1.5em !important;
+  z-index: 0;
+  padding-bottom: 0.2em !important;
+}
+
+.merge-up-down {
+  position: relative;
+  margin-bottom: -1em !important;
+  margin-top: -1em !important;
+  z-index: 0;
 }

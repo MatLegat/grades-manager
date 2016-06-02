@@ -26,6 +26,13 @@ object User {
     }
   }
 
+  def getByEmail(email: String): Option[User] = {
+    DB.withConnection { implicit connection =>
+      SQL("""select * from "User" where email = {email}""").on(
+        'email -> email).as(User.parse.singleOpt)
+    }
+  }
+
   def login(login: String, password: String): Option[User] = {
     getByLogin(login) match {
       case Some(user) => BCrypt.checkpw(password, user.password) match {
@@ -38,8 +45,7 @@ object User {
   }
 
   def register(login: String, name: String, email: String, password: String): Option[User] = {
-    // TODO form validation
-    def hash = BCrypt.hashpw(password, BCrypt.gensalt(15));
+    def hash = BCrypt.hashpw(password, BCrypt.gensalt(14));
     DB.withConnection { implicit connection =>
       SQL("""
         insert into "User" values (

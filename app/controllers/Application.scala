@@ -1,12 +1,20 @@
 package controllers
 
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import play.api.Play.current
+import play.api.i18n.Messages.Implicits._
 import javax.inject._
 import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
+import forms.RegisterData
+import forms.LoginData
 import models.User
+
+
+case class RegisterData(login: String, name: String, email: String, password: String)
+
 
 @Singleton
 class Application @Inject() extends Controller {
@@ -19,17 +27,13 @@ class Application @Inject() extends Controller {
   }
 
   def loginPost = Action.async { implicit request =>
-    val form = Form(tuple(
-      "login" -> text,
-      "password" -> text
-    ))
-    val (login, password) = form.bindFromRequest.get
-    val futureOptUser = scala.concurrent.Future { User.login(login, password) }
+    val loginData = LoginData.form.bindFromRequest.get
+    val futureOptUser = scala.concurrent.Future { User.login(loginData.login, loginData.password) }
     futureOptUser.map(optUser =>
       optUser match {
-        case None => Ok(views.html.loginForm(Option("Usuário ou senha incorretos.")))
+        case None => BadRequest(views.html.loginForm(Option("Usuário ou senha incorretos."), Option(loginData.login)))
         case Some(user) => Redirect(routes.Application.index).withSession(
-          "user" -> login
+          "user" -> loginData.login
         )
       }
     )
@@ -42,27 +46,30 @@ class Application @Inject() extends Controller {
   }
 
   def registerGet = Action { implicit request =>
+    val form = forms.RegisterData.form
     request.session.get("user") match {
       case Some(user) => Redirect(routes.Application.index)
-      case None => Ok(views.html.registerForm())
+      case None => Ok(views.html.registerForm(form))
     }
   }
 
   def registerPost = Action.async { implicit request =>
-    val form = Form(tuple(
-      "login" -> text,
-      "name" -> text,
-      "email" -> text,
-      "password" -> text,
-      "passwordConfirm" -> text
-    ))
-    val (login, name, email, password, passwordConfirm) = form.bindFromRequest.get
-    val futureOptUser = scala.concurrent.Future { User.register(login, name, email, password) }
-    futureOptUser.map(optUser =>
-      optUser match {
-        case None => Ok(views.html.registerForm(Option("ERRO")))
-        case Some(user) => Redirect(routes.Application.index).withSession(
-          "user" -> login
+    val form = forms.RegisterData.form
+    form.bindFromRequest.fold (
+      formWithErrors => {
+        scala.concurrent.Future { BadRequest(views.html.registerForm(formWithErrors)) }
+      },
+      userData => {
+        val futureOptUser = scala.concurrent.Future {
+          User.register(userData.login, userData.name, userData.email, userData.password)
+        }
+        futureOptUser.map(optUser =>
+          optUser match {
+            case None => Redirect(routes.Application.index)
+            case Some(user) => Redirect(routes.Application.index).withSession(
+              "user" -> user.login
+            )
+          }
         )
       }
     )

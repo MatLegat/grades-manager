@@ -1,18 +1,36 @@
-@(error: Option[String] = None)
+@(userForm: Form[forms.RegisterData])(implicit messages: Messages)
+@import helper._
 
 @main("Registrar") {
 
   <div class="simple small">
-    @error.map(err => <div class="text-box error"> {err} </div>)
     <form action="@routes.Application.registerPost" method="post">
-      <input type="text" id="login" name="login" placeholder="Login" class="text">
-      <input type="text" id="name" name="name" placeholder="Nome" class="text">
-      <input type="text" id="email" name="email" placeholder="Email" class="text">
-      <input type="password" id="password" name="password" placeholder="Senha" class="text">
-      <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Confirmar senha" class="text">
+
+      <label>
+        <input type="text" id="login" name="login" placeholder="Login" class="text @if(userForm.error("login")) {error-field}" maxlength="40" value="@userForm("login").value">
+        @userForm.error("login").map(err => <div class="text-box error merge-up">{Messages(err.message)}</div>)
+      </label>
+
+      <label>
+        <input type="text" id="name" name="name" placeholder="Nome" class="text @if(userForm.error("name")) {error-field}" maxlength="250" value="@userForm("name").value">
+        @userForm.error("name").map { err => <div class="text-box error merge-up">@Messages(err.message)</div> }
+      </label>
+
+      <label>
+        <input type="text" id="email" name="email" placeholder="Email" class="text @if(userForm.error("email")) {error-field}" value="@userForm("email").value">
+        @userForm.error("email").map { err => <div class="text-box error merge-up">@Messages(err.message)</div> }
+      </label>
+
+      <label>
+        <input type="password" id="password" name="password" placeholder="Senha" class="text  @if(userForm.error("password") || userForm.globalErrors) {error-field}">
+        @userForm.error("password").map { err => <div class="text-box error merge-up">@Messages(err.message)</div> }
+        @userForm.globalErrors.map { err => <div class="text-box error merge-up-down">@Messages(err.message)</div> }
+      </label>
+      <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="Confirmar senha" class="text @if(userForm.globalErrors) {error-field}">
+
       <button type="submit">Registrar</button>
       <button type="button" onclick="location.href='@routes.Application.loginGet'">Cancelar</button>
+
     </form>
   </div>
-
 }
