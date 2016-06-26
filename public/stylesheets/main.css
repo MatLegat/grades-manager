@@ -80,6 +80,10 @@ button::-moz-focus-inner {
   border: 0;
 }
 
+*:focus {
+  outline: none;
+}
+
 .error {
   border: 0.2em solid #f77 !important;
   background-color: #fdd !important;

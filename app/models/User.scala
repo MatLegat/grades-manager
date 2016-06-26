@@ -22,14 +22,14 @@ object User {
   def getByLogin(login: String): Option[User] = {
     DB.withConnection { implicit connection =>
       SQL("""select * from "User" where login = {login}""").on(
-        'login -> login).as(User.parse.singleOpt)
+        'login -> login.toLowerCase().trim()).as(User.parse.singleOpt)
     }
   }
 
   def getByEmail(email: String): Option[User] = {
     DB.withConnection { implicit connection =>
       SQL("""select * from "User" where email = {email}""").on(
-        'email -> email).as(User.parse.singleOpt)
+        'email -> email.toLowerCase()).as(User.parse.singleOpt)
     }
   }
 
@@ -52,7 +52,7 @@ object User {
           {login}, {name}, {email}, {password}
         )
       """).on(
-        'login -> login, 'name -> name, 'email -> email, 'password -> hash
+        'login -> login.toLowerCase().trim(), 'name -> name.trim(), 'email -> email.toLowerCase(), 'password -> hash
       ).executeUpdate()
     Option(User(login, name, email, hash))
     }
