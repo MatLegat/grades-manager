@@ -8,6 +8,7 @@ import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
+import scala.concurrent.Future
 import forms.RegisterData
 import forms.LoginData
 import models.User
@@ -28,10 +29,12 @@ class Application @Inject() extends Controller {
 
   def loginPost = Action.async { implicit request =>
     val loginData = LoginData.form.bindFromRequest.get
-    val futureOptUser = scala.concurrent.Future { User.login(loginData.login, loginData.password) }
-    futureOptUser.map(optUser =>
+    User.login(loginData.login, loginData.password).map(optUser =>
       optUser match {
-        case None => BadRequest(views.html.loginForm(Option("Usuário ou senha incorretos."), Option(loginData.login)))
+        case None => BadRequest(
+          views.html.loginForm(Option("Usuário ou senha incorretos."),
+          Option(loginData.login))
+         )
         case Some(user) => Redirect(routes.Application.index).withSession(
           "user" -> loginData.login
         )
@@ -46,10 +49,9 @@ class Application @Inject() extends Controller {
   }
 
   def registerGet = Action { implicit request =>
-    val form = forms.RegisterData.form
     request.session.get("user") match {
       case Some(user) => Redirect(routes.Application.index)
-      case None => Ok(views.html.registerForm(form))
+      case None => Ok(views.html.registerForm(forms.RegisterData.form))
     }
   }
 
@@ -57,15 +59,14 @@ class Application @Inject() extends Controller {
     val form = forms.RegisterData.form
     form.bindFromRequest.fold (
       formWithErrors => {
-        scala.concurrent.Future { BadRequest(views.html.registerForm(formWithErrors)) }
+        Future { BadRequest(views.html.registerForm(formWithErrors)) }
       },
       userData => {
-        val futureOptUser = scala.concurrent.Future {
-          User.register(userData.login, userData.name, userData.email, userData.password)
-        }
-        futureOptUser.map(optUser =>
+        User.register(userData.login, userData.name, userData.email, userData.password).map(optUser =>
           optUser match {
-            case None => Redirect(routes.Application.index)
+            case None => Redirect(routes.Application.registerGet).flashing(
+              "error" -> "error.unknow"
+            )
             case Some(user) => Redirect(routes.Application.index).withSession(
               "user" -> user.login
             )
@@ -75,13 +76,15 @@ class Application @Inject() extends Controller {
     )
   }
 
-  def index = Action {implicit request =>
+  def index = Action.async {implicit request =>
     request.session.get("user") match {
-      case Some(login) => User.getByLogin(login) match {
-        case Some(user) => Ok(views.html.index(user))
-        case None => Redirect(routes.Application.logout)
-      }
-      case None => Redirect(routes.Application.loginGet)
+      case Some(login) => User.getByLogin(login).map(optUser =>
+        optUser match {
+          case Some(user) => Ok(views.html.index(user))
+          case None => Redirect(routes.Application.logout)
+        }
+      )
+      case None => Future{ Redirect(routes.Application.loginGet) }
     }
   }
 

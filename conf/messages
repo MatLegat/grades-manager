@@ -3,3 +3,4 @@ error.email=Email inválido.
 error.password.nomatch=As senhas são diferentes.
 error.email.stored=Email já cadastrado.
 error.login.taken=Login já cadastrado.
+error.unknow=Erro desconhecido. 

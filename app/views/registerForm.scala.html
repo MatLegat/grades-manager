@@ -1,9 +1,10 @@
-@(userForm: Form[forms.RegisterData])(implicit messages: Messages)
+@(userForm: Form[forms.RegisterData])(implicit messages: Messages, flash: Flash)
 @import helper._
 
 @main("Registrar") {
 
   <div class="simple small">
+    @flash.get("error").map(err => <div class="text-box error"> {Messages(err)} </div>)
     <form action="@routes.Application.registerPost" method="post">
 
       <label>
