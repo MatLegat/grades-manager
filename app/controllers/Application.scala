@@ -1,24 +1,20 @@
 package controllers
 
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import play.api.Play.current
-import play.api.i18n.Messages.Implicits._
-import javax.inject._
 import play.api._
-import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
+import play.api.mvc._
+import play.api.Play.current
+import play.api.i18n.Messages.Implicits._
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import scala.concurrent.Future
-import forms.RegisterData
-import forms.LoginData
 import models.User
 
 
 case class RegisterData(login: String, name: String, email: String, password: String)
 
 
-@Singleton
-class Application @Inject() extends Controller {
+class Application extends Controller {
 
   def loginGet = Action { implicit request =>
     request.session.get("user") match {
@@ -28,15 +24,23 @@ class Application @Inject() extends Controller {
   }
 
   def loginPost = Action.async { implicit request =>
-    val loginData = LoginData.form.bindFromRequest.get
-    User.login(loginData.login, loginData.password).map(optUser =>
-      optUser match {
-        case None => BadRequest(
-          views.html.loginForm(Option("Usuário ou senha incorretos."),
-          Option(loginData.login))
-         )
-        case Some(user) => Redirect(routes.Application.index).withSession(
-          "user" -> loginData.login
+    forms.LoginData.form.bindFromRequest.fold (
+      formWithErrors => {
+        Future { BadRequest(views.html.loginForm(formWithErrors("login").value)) }
+      },
+      loginData => {
+        User.login(loginData.login, loginData.password).map(optUser =>
+          optUser match {
+            case None => BadRequest(
+              views.html.loginForm(
+                Option(loginData.login),
+                Option("error.login.incorrect")
+              )
+            )
+            case Some(user) => Redirect(routes.Application.index).withSession(
+              "user" -> loginData.login
+            )
+          }
         )
       }
     )
@@ -44,7 +48,7 @@ class Application @Inject() extends Controller {
 
   def logout = Action {
     Redirect(routes.Application.loginGet).withNewSession.flashing(
-      "status" -> "Logout realizado com sucesso."
+      "status" -> "status.logout"
     )
   }
 
@@ -64,7 +68,7 @@ class Application @Inject() extends Controller {
       userData => {
         User.register(userData.login, userData.name, userData.email, userData.password).map(optUser =>
           optUser match {
-            case None => Redirect(routes.Application.registerGet).flashing(
+            case None => Redirect(routes.Application.loginGet).withNewSession.flashing(
               "error" -> "error.unknow"
             )
             case Some(user) => Redirect(routes.Application.index).withSession(

@@ -1,6 +1,9 @@
 error.required=Valor obrigatório.
+error.mult.required=Valores obrigatórios.
 error.email=Email inválido.
 error.password.nomatch=As senhas são diferentes.
 error.email.stored=Email já cadastrado.
 error.login.taken=Login já cadastrado.
-error.unknow=Erro desconhecido. 
+error.login.incorrect=Usuário ou senha incorretos.
+error.unknow=Erro desconhecido.
+status.logout=Logout realizado com sucesso.

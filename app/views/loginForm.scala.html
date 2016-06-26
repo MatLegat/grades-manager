@@ -1,13 +1,14 @@
-@(error: Option[String] = None, login: Option[String] = None)(implicit flash: Flash)
+@(login: Option[String] = None, error: Option[String] = None)(implicit messages: Messages, flash: Flash)
 
 @main("Login") {
 
   <div class="simple small">
-    @flash.get("status").map(st => <div class="text-box status"> {st} </div>)
+    @flash.get("error").map(err => <div class="text-box error"> {Messages(err)} </div>)
+    @flash.get("status").map(st => <div class="text-box status"> {Messages(st)} </div>)
     <form action="@routes.Application.loginPost" method="post">
       <input type="text" id="login" name="login" placeholder="Login" value="@login.map(login=>{login})" class="text @if(error){error-field}">
       <label>
-        @error.map(err => <div class="text-box error merge-up-down"> {err} </div>)
+        @error.map(err => <div class="text-box error merge-up-down"> {Messages(err)} </div>)
         <input type="password" id="password" name="password" placeholder="Senha" class="text @if(error){error-field}">
       </label>
       <button type="submit">Logar</button>

@@ -55,18 +55,22 @@ object User {
   def register(login: String, name: String, email: String, password: String): Future[Option[User]] = {
     Future {
       def hash = BCrypt.hashpw(password, BCrypt.gensalt(14));
-      DB.withConnection { implicit connection =>
-        SQL("""
-          insert into "User" values (
-            {login}, {name}, {email}, {password}
-          )
-        """).on(
-          'login -> login.toLowerCase().trim(),
-          'name -> name.trim(),
-          'email -> email.toLowerCase(),
-          'password -> hash
-        ).executeUpdate()
-      Option(User(login, name, email, hash))
+      try {
+        DB.withConnection { implicit connection =>
+          SQL("""
+            insert into "User" values (
+              {login}, {name}, {email}, {password}
+            )
+          """).on(
+            'login -> login.toLowerCase().trim(),
+            'name -> name.trim(),
+            'email -> email.toLowerCase(),
+            'password -> hash
+          ).executeUpdate()
+        Option(User(login, name, email, hash))
+        }
+      } catch {
+        case _ => None
       }
     }
   }

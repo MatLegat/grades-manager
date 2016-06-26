@@ -4,7 +4,6 @@
 @main("Registrar") {
 
   <div class="simple small">
-    @flash.get("error").map(err => <div class="text-box error"> {Messages(err)} </div>)
     <form action="@routes.Application.registerPost" method="post">
 
       <label>

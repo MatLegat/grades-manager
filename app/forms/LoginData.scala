@@ -9,8 +9,8 @@ object LoginData {
 
   def form = Form(
     mapping(
-      "login" -> text,
-      "password"-> text
+      "login" -> nonEmptyText,
+      "password"-> nonEmptyText
     )(LoginData.apply)(LoginData.unapply)
   )
 
