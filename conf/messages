@@ -7,3 +7,5 @@ error.login.taken=Login já cadastrado.
 error.login.incorrect=Usuário ou senha incorretos.
 error.unknow=Erro desconhecido.
 status.logout=Logout realizado com sucesso.
+error.session.removed=Usuário logado deixou de existir.
+error.session.timeout=Sessão expirada.

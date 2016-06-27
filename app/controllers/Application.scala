@@ -16,11 +16,51 @@ case class RegisterData(login: String, name: String, email: String, password: St
 
 class Application extends Controller {
 
-  def loginGet = Action { implicit request =>
-    request.session.get("user") match {
-      case Some(user) => Redirect(routes.Application.index)
-      case None => Ok(views.html.loginForm())
+  private def newTimeout = (System.currentTimeMillis + 1000 * 60 * 15).toString
+
+  def getLoggedUser(session: Session): Future[Either[Option[String], User]] = {
+    session.get("expires") match {
+      case Some(timestamp) => {
+        if (timestamp.toLong > System.currentTimeMillis)
+          User.getByLogin(session.get("user").getOrElse("")).map(
+            _ match {
+              case Some(user) => Right(user)
+              case None => Left(Option("error.session.removed"))
+            }
+          )
+        else
+          Future(Left(Option("error.session.timeout")))
+      }
+      case None => Future(Left(None))
     }
+  }
+
+  def doWithSession(action: (User) => Result, session: Session) = {
+    def updatedSession = session + ("expires" -> newTimeout)
+    getLoggedUser(session).map(
+      _ match {
+        case Right(user) =>
+          action(user).withSession(updatedSession)
+        case Left(optError) => {
+          def action = Redirect(routes.Application.loginGet).withNewSession
+          optError match {
+            case Some(error) => action.flashing("error" -> error)
+            case None => action
+          }
+        }
+      }
+    )
+  }
+
+  def doWithoutSession(result: Result, session: Session) = {
+    session.get("user") match {
+      case Some(user) => Redirect(routes.Application.index)
+      case None => result
+    }
+  }
+
+  def loginGet = Action { implicit request =>
+    doWithoutSession(Ok(views.html.loginForm()), request.session)
   }
 
   def loginPost = Action.async { implicit request =>
@@ -38,7 +78,8 @@ class Application extends Controller {
               )
             )
             case Some(user) => Redirect(routes.Application.index).withSession(
-              "user" -> loginData.login
+              "user" -> loginData.login,
+              "expires" -> newTimeout
             )
           }
         )
@@ -53,10 +94,10 @@ class Application extends Controller {
   }
 
   def registerGet = Action { implicit request =>
-    request.session.get("user") match {
-      case Some(user) => Redirect(routes.Application.index)
-      case None => Ok(views.html.registerForm(forms.RegisterData.form))
-    }
+    doWithoutSession(
+      Ok(views.html.registerForm(forms.RegisterData.form)),
+      request.session
+    )
   }
 
   def registerPost = Action.async { implicit request =>
@@ -72,7 +113,8 @@ class Application extends Controller {
               "error" -> "error.unknow"
             )
             case Some(user) => Redirect(routes.Application.index).withSession(
-              "user" -> user.login
+              "user" -> user.login,
+              "expires" -> newTimeout
             )
           }
         )
@@ -81,15 +123,7 @@ class Application extends Controller {
   }
 
   def index = Action.async {implicit request =>
-    request.session.get("user") match {
-      case Some(login) => User.getByLogin(login).map(optUser =>
-        optUser match {
-          case Some(user) => Ok(views.html.index(user))
-          case None => Redirect(routes.Application.logout)
-        }
-      )
-      case None => Future{ Redirect(routes.Application.loginGet) }
-    }
+    doWithSession(user => Ok(views.html.index(user)), request.session)
   }
 
 }
